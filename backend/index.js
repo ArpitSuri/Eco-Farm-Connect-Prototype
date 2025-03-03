@@ -17,7 +17,11 @@ dbConnection();
 const app = express();
 dotenv.config();
 app.use("/uploads", express.static("uploads"));
-app.use(cors());
+app.use(cors({
+  origin: 'https://eco-farm-connect-prototype.vercel.app',
+  methods: 'GET,POST,PUT,DELETE,OPTIONS',
+  allowedHeaders: 'Content-Type,Authorization'
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
