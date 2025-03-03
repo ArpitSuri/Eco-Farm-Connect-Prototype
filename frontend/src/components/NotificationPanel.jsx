@@ -15,7 +15,7 @@ const NotificationPanel = () => {
   useEffect(() => {
     const fetchNotifications = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/notifications");
+        const response = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/notifications`);
         setNotifications(response.data);
       } catch (error) {
         console.error("Error fetching notifications:", error);
@@ -31,7 +31,7 @@ const NotificationPanel = () => {
 
   const removeNotification = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/notifications/${id}`);
+      await axios.delete(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/notifications/${id}`);
       setNotifications(notifications.filter((notification) => notification._id !== id));
     } catch (error) {
       console.error("Error deleting notification:", error);
@@ -40,7 +40,7 @@ const NotificationPanel = () => {
 
   const handleAccept = async (notification) => {
     try {
-      const response = await axios.post("http://localhost:5000/api/accept-notification", {
+      const response = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/accept-notification`, {
         receiverId: user.id,
         senderId: notification.senderId,
       });

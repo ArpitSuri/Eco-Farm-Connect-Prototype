@@ -16,7 +16,7 @@ const FarmerProfile = () => {
       }
 
       try {
-        const response = await axios.get("http://localhost:8080/api/industry/me", {
+        const response = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/industry/me`, {
           headers: {
             Authorization: `Bearer ${token}`, // Send token in headers
           },

@@ -12,7 +12,7 @@ const LoginIndustry = () => {
       e.preventDefault();
       setError('');
       try {
-        const { data } = await axios.post('http://localhost:8080/api/auth/login-industry', { phone_no, password });
+        const { data } = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}api/auth/login-industry`, { phone_no, password });
         localStorage.setItem('token', data.token);
         navigate('/industry-dashboard'); // Redirect to dashboard or home page
       } catch (err) {

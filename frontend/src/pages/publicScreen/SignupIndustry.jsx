@@ -146,7 +146,7 @@ const SignupIndustry = () => {
     setMessage("");
 
     try {
-      const response = await axios.post("http://localhost:8080/api/auth/sign-industry", formData);
+      const response = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/auth/sign-industry`, formData);
       setMessage("Account created successfully!");
       setFormData({
         industryname: "",

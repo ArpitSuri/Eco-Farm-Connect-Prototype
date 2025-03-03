@@ -353,7 +353,7 @@ export default function WasteSubmission() {
     });
 
     try {
-      await axios.post("http://localhost:8080/api/waste/submit", formDataToSend, {
+      await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/waste/submit`, formDataToSend, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       alert("Waste submitted successfully!");

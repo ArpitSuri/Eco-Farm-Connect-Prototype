@@ -152,7 +152,7 @@ const Signupfarmer = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/api/auth/sign-farmer', formData);
+      const response = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/auth/sign-farmer`, formData);
       alert('Signup successful');
       console.log(response.data);
     } catch (error) {

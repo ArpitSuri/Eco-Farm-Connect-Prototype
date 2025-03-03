@@ -13,7 +13,7 @@ const AllIndustry = () => {
 
   const fetchData = async () => {
     try {
-      const url = query ? `http://localhost:8080/api/industry/all?search=${query}` : `http://localhost:8080/api/industry/all`;
+      const url = query ? `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/industry/all?search=${query}` : `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/industry/all`;
       const response = await axios.get(url);
       setData(response.data);
     } catch (error) {

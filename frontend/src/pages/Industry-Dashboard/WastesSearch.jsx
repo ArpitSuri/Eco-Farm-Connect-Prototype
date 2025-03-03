@@ -19,8 +19,8 @@ const WasteSearch = () => {
   const fetchData = async () => {
     try {
       const url = query 
-        ? `http://localhost:8080/api/waste/all?search=${query}` 
-        : `http://localhost:8080/api/waste/all`;
+        ? `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/waste/all?search=${query}` 
+        : `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/waste/all`;
       const response = await axios.get(url);
       console.log("API Response:", response.data); // Debugging log
       setData(response.data.data || response.data); // Ensure correct data extraction

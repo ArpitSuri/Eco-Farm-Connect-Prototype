@@ -14,7 +14,7 @@ const AllFarmer = () => {
 
   const fetchData = async () => {
     try {
-      const url = query ? `http://localhost:8080/api/farmer/all?search=${query}` : `http://localhost:8080/api/farmer/all`;
+      const url = query ? `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/farmer/all?search=${query}` : `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/farmer/all`;
       const response = await axios.get(url);
       setData(response.data);
     } catch (error) {
